@@ -26,28 +26,8 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Calc data lead 2</from>
-      <to>Criar ID lead 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Calc data paciente 2</from>
-      <to>Criar ID paciente 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Calc data pagamento 2</from>
-      <to>Criar ID pagamento 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Calculador de dia semana 2</from>
       <to>bool dia semana 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Criar ID atendimento 2</from>
-      <to>Junta todos IDS 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -58,11 +38,6 @@
     <hop>
       <from>Fim Semana 2</from>
       <to>junta binarios 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Junta todos IDS 2</from>
-      <to>Append streams </to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -86,28 +61,28 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>data atendimento 2</from>
-      <to>Calc data atendimento 2</to>
+      <from>junta binarios 2</from>
+      <to>Insert / update 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>data paciente</from>
-      <to>Calc data paciente 2</to>
+      <to>Junta todos IDS </to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>data atendimento</from>
+      <to>Junta todos IDS </to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>data lead/agentamento</from>
-      <to>Calc data lead 2</to>
+      <to>Append streams</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>data pagamento 2</from>
-      <to>Calc data pagamento 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>junta binarios 2</from>
-      <to>Insert / update 2</to>
+      <from>data pagamento</from>
+      <to>Append streams</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -116,23 +91,18 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
+      <from>Append streams</from>
+      <to>Append streams </to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
       <from>Append streams </from>
+      <to>Calc data atendimento 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Criar ID atendimento 2</from>
       <to>Sort rows 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Criar ID pagamento 2</from>
-      <to>Junta todos IDS </to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Criar ID lead 2</from>
-      <to>Junta todos IDS </to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Criar ID paciente 2</from>
-      <to>Junta todos IDS 2</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -182,158 +152,8 @@
     <failIfNoFile>Y</failIfNoFile>
     <attributes/>
     <GUI>
-      <xloc>336</xloc>
-      <yloc>432</yloc>
-    </GUI>
-  </transform>
-  <transform>
-    <name>Calc data lead 2</name>
-    <type>Calculator</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <calculation>
-      <calc_type>DAY_OF_MONTH</calc_type>
-      <field_a>data_completa</field_a>
-      <field_name>dia</field_name>
-      <remove>N</remove>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-    </calculation>
-    <calculation>
-      <calc_type>MONTH_OF_DATE</calc_type>
-      <field_a>data_completa</field_a>
-      <field_name>mes</field_name>
-      <remove>N</remove>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-    </calculation>
-    <calculation>
-      <calc_type>YEAR_OF_DATE</calc_type>
-      <field_a>data_completa</field_a>
-      <field_name>ano</field_name>
-      <remove>N</remove>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-    </calculation>
-    <calculation>
-      <calc_type>QUARTER_OF_DATE</calc_type>
-      <field_a>data_completa</field_a>
-      <field_name>trimestre</field_name>
-      <remove>N</remove>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-    </calculation>
-    <failIfNoFile>Y</failIfNoFile>
-    <attributes/>
-    <GUI>
-      <xloc>320</xloc>
-      <yloc>704</yloc>
-    </GUI>
-  </transform>
-  <transform>
-    <name>Calc data paciente 2</name>
-    <type>Calculator</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <calculation>
-      <calc_type>DAY_OF_MONTH</calc_type>
-      <field_a>data_completa</field_a>
-      <field_name>dia</field_name>
-      <remove>N</remove>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-    </calculation>
-    <calculation>
-      <calc_type>MONTH_OF_DATE</calc_type>
-      <field_a>data_completa</field_a>
-      <field_name>mes</field_name>
-      <remove>N</remove>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-    </calculation>
-    <calculation>
-      <calc_type>YEAR_OF_DATE</calc_type>
-      <field_a>data_completa</field_a>
-      <field_name>ano</field_name>
-      <remove>N</remove>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-    </calculation>
-    <calculation>
-      <calc_type>QUARTER_OF_DATE</calc_type>
-      <field_a>data_completa</field_a>
-      <field_name>trimestre</field_name>
-      <remove>N</remove>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-    </calculation>
-    <failIfNoFile>Y</failIfNoFile>
-    <attributes/>
-    <GUI>
-      <xloc>272</xloc>
-      <yloc>304</yloc>
-    </GUI>
-  </transform>
-  <transform>
-    <name>Calc data pagamento 2</name>
-    <type>Calculator</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <calculation>
-      <calc_type>DAY_OF_MONTH</calc_type>
-      <field_a>data_completa</field_a>
-      <field_name>dia</field_name>
-      <remove>N</remove>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-    </calculation>
-    <calculation>
-      <calc_type>MONTH_OF_DATE</calc_type>
-      <field_a>data_completa</field_a>
-      <field_name>mes</field_name>
-      <remove>N</remove>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-    </calculation>
-    <calculation>
-      <calc_type>YEAR_OF_DATE</calc_type>
-      <field_a>data_completa</field_a>
-      <field_name>ano</field_name>
-      <remove>N</remove>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-    </calculation>
-    <calculation>
-      <calc_type>QUARTER_OF_DATE</calc_type>
-      <field_a>data_completa</field_a>
-      <field_name>trimestre</field_name>
-      <remove>N</remove>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-    </calculation>
-    <failIfNoFile>Y</failIfNoFile>
-    <attributes/>
-    <GUI>
-      <xloc>320</xloc>
-      <yloc>576</yloc>
+      <xloc>384</xloc>
+      <yloc>656</yloc>
     </GUI>
   </transform>
   <transform>
@@ -358,8 +178,8 @@
     <failIfNoFile>Y</failIfNoFile>
     <attributes/>
     <GUI>
-      <xloc>1120</xloc>
-      <yloc>560</yloc>
+      <xloc>432</xloc>
+      <yloc>768</yloc>
     </GUI>
   </transform>
   <transform>
@@ -385,90 +205,8 @@
     </formulas>
     <attributes/>
     <GUI>
-      <xloc>496</xloc>
-      <yloc>496</yloc>
-    </GUI>
-  </transform>
-  <transform>
-    <name>Criar ID lead 2</name>
-    <type>Formula</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <formulas>
-      <formula>
-        <field_name>id_tempo</field_name>
-        <formula>YEAR([data_completa])*10000 + MONTH([data_completa])*100 + DAY([data_completa])</formula>
-        <set_na>N</set_na>
-        <value_length>-1</value_length>
-        <value_precision>-1</value_precision>
-        <value_type>5</value_type>
-      </formula>
-    </formulas>
-    <attributes/>
-    <GUI>
-      <xloc>496</xloc>
-      <yloc>768</yloc>
-    </GUI>
-  </transform>
-  <transform>
-    <name>Criar ID paciente 2</name>
-    <type>Formula</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <formulas>
-      <formula>
-        <field_name>id_tempo</field_name>
-        <formula>YEAR([data_completa])*10000 + MONTH([data_completa])*100 + DAY([data_completa])
-</formula>
-        <set_na>N</set_na>
-        <value_length>-1</value_length>
-        <value_precision>-1</value_precision>
-        <value_type>5</value_type>
-      </formula>
-    </formulas>
-    <attributes/>
-    <GUI>
-      <xloc>496</xloc>
-      <yloc>336</yloc>
-    </GUI>
-  </transform>
-  <transform>
-    <name>Criar ID pagamento 2</name>
-    <type>Formula</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <formulas>
-      <formula>
-        <field_name>id_tempo</field_name>
-        <formula>YEAR([data_completa])*10000 + MONTH([data_completa])*100 + DAY([data_completa])</formula>
-        <set_na>N</set_na>
-        <value_length>-1</value_length>
-        <value_precision>-1</value_precision>
-        <value_type>5</value_type>
-      </formula>
-    </formulas>
-    <attributes/>
-    <GUI>
-      <xloc>496</xloc>
-      <yloc>640</yloc>
+      <xloc>640</xloc>
+      <yloc>608</yloc>
     </GUI>
   </transform>
   <transform>
@@ -502,8 +240,8 @@
     </fields>
     <attributes/>
     <GUI>
-      <xloc>992</xloc>
-      <yloc>720</yloc>
+      <xloc>608</xloc>
+      <yloc>928</yloc>
     </GUI>
   </transform>
   <transform>
@@ -537,27 +275,8 @@
     </fields>
     <attributes/>
     <GUI>
-      <xloc>1088</xloc>
-      <yloc>784</yloc>
-    </GUI>
-  </transform>
-  <transform>
-    <name>Junta todos IDS 2</name>
-    <type>Append</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <head_name>Criar ID atendimento 2</head_name>
-    <tail_name>Criar ID paciente 2</tail_name>
-    <attributes/>
-    <GUI>
-      <xloc>672</xloc>
-      <yloc>432</yloc>
+      <xloc>752</xloc>
+      <yloc>944</yloc>
     </GUI>
   </transform>
   <transform>
@@ -581,8 +300,8 @@
     <reject_duplicate_row>N</reject_duplicate_row>
     <attributes/>
     <GUI>
-      <xloc>1024</xloc>
-      <yloc>448</yloc>
+      <xloc>672</xloc>
+      <yloc>704</yloc>
     </GUI>
   </transform>
   <transform>
@@ -613,8 +332,8 @@
     <unique_rows>N</unique_rows>
     <attributes/>
     <GUI>
-      <xloc>912</xloc>
-      <yloc>544</yloc>
+      <xloc>864</xloc>
+      <yloc>608</yloc>
     </GUI>
   </transform>
   <transform>
@@ -685,12 +404,12 @@
     <send_true_to>Dia Semana</send_true_to>
     <attributes/>
     <GUI>
-      <xloc>1088</xloc>
-      <yloc>656</yloc>
+      <xloc>720</xloc>
+      <yloc>832</yloc>
     </GUI>
   </transform>
   <transform>
-    <name>data atendimento 2</name>
+    <name>data atendimento</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -709,8 +428,8 @@ WHERE data_atendimento IS NOT NULL</sql>
     <variables_active>N</variables_active>
     <attributes/>
     <GUI>
-      <xloc>176</xloc>
-      <yloc>432</yloc>
+      <xloc>304</xloc>
+      <yloc>272</yloc>
     </GUI>
   </transform>
   <transform>
@@ -740,7 +459,7 @@ WHERE data_atendimento IS NOT NULL;</sql>
     <attributes/>
     <GUI>
       <xloc>176</xloc>
-      <yloc>336</yloc>
+      <yloc>272</yloc>
     </GUI>
   </transform>
   <transform>
@@ -769,12 +488,12 @@ WHERE data_do_agendamento IS NOT NULL</sql>
     <variables_active>N</variables_active>
     <attributes/>
     <GUI>
-      <xloc>176</xloc>
-      <yloc>704</yloc>
+      <xloc>560</xloc>
+      <yloc>288</yloc>
     </GUI>
   </transform>
   <transform>
-    <name>data pagamento 2</name>
+    <name>data pagamento</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -799,8 +518,8 @@ WHERE data_vencimento IS NOT NULL</sql>
     <variables_active>N</variables_active>
     <attributes/>
     <GUI>
-      <xloc>176</xloc>
-      <yloc>576</yloc>
+      <xloc>720</xloc>
+      <yloc>288</yloc>
     </GUI>
   </transform>
   <transform>
@@ -818,8 +537,8 @@ WHERE data_vencimento IS NOT NULL</sql>
     <tail_name>Fim Semana 2</tail_name>
     <attributes/>
     <GUI>
-      <xloc>992</xloc>
-      <yloc>848</yloc>
+      <xloc>672</xloc>
+      <yloc>1072</yloc>
     </GUI>
   </transform>
   <transform>
@@ -833,12 +552,12 @@ WHERE data_vencimento IS NOT NULL</sql>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <head_name>Criar ID pagamento 2</head_name>
-    <tail_name>Criar ID lead 2</tail_name>
+    <head_name>data paciente</head_name>
+    <tail_name>data atendimento</tail_name>
     <attributes/>
     <GUI>
-      <xloc>656</xloc>
-      <yloc>688</yloc>
+      <xloc>240</xloc>
+      <yloc>368</yloc>
     </GUI>
   </transform>
   <transform>
@@ -852,12 +571,12 @@ WHERE data_vencimento IS NOT NULL</sql>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <head_name>Junta todos IDS 2</head_name>
-    <tail_name>Junta todos IDS </tail_name>
+    <head_name>Junta todos IDS </head_name>
+    <tail_name>Append streams</tail_name>
     <attributes/>
     <GUI>
-      <xloc>768</xloc>
-      <yloc>560</yloc>
+      <xloc>416</xloc>
+      <yloc>496</yloc>
     </GUI>
   </transform>
   <transform>
@@ -930,8 +649,27 @@ WHERE data_vencimento IS NOT NULL</sql>
     <update_bypassed>N</update_bypassed>
     <attributes/>
     <GUI>
-      <xloc>848</xloc>
-      <yloc>848</yloc>
+      <xloc>528</xloc>
+      <yloc>1072</yloc>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Append streams</name>
+    <type>Append</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <head_name>data lead/agentamento</head_name>
+    <tail_name>data pagamento</tail_name>
+    <attributes/>
+    <GUI>
+      <xloc>608</xloc>
+      <yloc>400</yloc>
     </GUI>
   </transform>
   <transform_error_handling>
