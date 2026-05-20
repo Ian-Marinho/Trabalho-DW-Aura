@@ -32,6 +32,51 @@
     </hop>
   </order>
   <transform>
+    <name>Carregar dim_tratamento</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <commit>1000</commit>
+    <connection>dw_aura</connection>
+    <lookup>
+      <key>
+        <condition>=</condition>
+        <field>id_tratamento</field>
+        <name>id_tratamento</name>
+        <name2/>
+      </key>
+      <schema/>
+      <table>dim_tratamento</table>
+      <value>
+        <name>descricao_tratamento</name>
+        <rename>descricao_tratamento</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>preco_base_tratamento</name>
+        <rename>preco_base_tratamento</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>qtd_sessoes</name>
+        <rename>qtd_sessoes</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <update_bypassed>N</update_bypassed>
+    <attributes/>
+    <GUI>
+      <xloc>464</xloc>
+      <yloc>80</yloc>
+    </GUI>
+  </transform>
+  <transform>
     <name>Lê procedimento</name>
     <type>TableInput</type>
     <description/>
@@ -54,6 +99,7 @@
 , brinde
 , hora_clinica
 , imposto_iss
+, quantidade_sessoes
 FROM "public".procedimento
 </sql>
     <variables_active>N</variables_active>
@@ -93,6 +139,12 @@ FROM "public".procedimento
         <precision>-2</precision>
         <rename>preco_base_tratamento</rename>
       </field>
+      <field>
+        <length>-2</length>
+        <name>quantidade_sessoes</name>
+        <precision>-2</precision>
+        <rename>qtd_sessoes</rename>
+      </field>
       <meta>
         <conversion_mask/>
         <currency_symbol/>
@@ -129,51 +181,29 @@ FROM "public".procedimento
         <storage_type/>
         <type>Number</type>
       </meta>
+      <meta>
+        <conversion_mask/>
+        <currency_symbol/>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <decimal_symbol/>
+        <encoding/>
+        <grouping_symbol/>
+        <length>10</length>
+        <lenient_string_to_number>N</lenient_string_to_number>
+        <name>qtd_sessoes</name>
+        <precision>2</precision>
+        <rename>qtd_sessoes</rename>
+        <roundingType>half_even</roundingType>
+        <storage_type/>
+        <type>Number</type>
+      </meta>
       <select_unspecified>N</select_unspecified>
     </fields>
     <attributes/>
     <GUI>
       <xloc>288</xloc>
-      <yloc>80</yloc>
-    </GUI>
-  </transform>
-  <transform>
-    <name>Carregar dim_tratamento</name>
-    <type>InsertUpdate</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <commit>1000</commit>
-    <connection>dw_aura</connection>
-    <lookup>
-      <key>
-        <condition>=</condition>
-        <field>id_tratamento</field>
-        <name>id_tratamento</name>
-        <name2/>
-      </key>
-      <schema/>
-      <table>dim_tratamento</table>
-      <value>
-        <name>descricao_tratamento</name>
-        <rename>descricao_tratamento</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>preco_base_tratamento</name>
-        <rename>preco_base_tratamento</rename>
-        <update>Y</update>
-      </value>
-    </lookup>
-    <update_bypassed>N</update_bypassed>
-    <attributes/>
-    <GUI>
-      <xloc>464</xloc>
       <yloc>80</yloc>
     </GUI>
   </transform>
